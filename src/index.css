@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles moved from CodeEditor.tsx */
+.collaborative-cursor {
+  background-color: rgba(59, 130, 246, 0.3);
+  border-left: 2px solid #3b82f6;
+}
+
+.collaborative-cursor-other {
+  border-left: 2px solid #3b82f6;
+}
+
+.collaborative-cursor-label {
+  background-color: #3b82f6;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.monaco-editor {
+  padding-top: 1rem;
+}
+
+/* Custom Monaco Editor Styles */
+.monaco-editor .margin {
+  background-color: transparent !important;
+}
+
+.monaco-editor .line-numbers {
+  color: #6b7280 !important;
+}
+
+.monaco-editor .current-line {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+.monaco-editor .cursor {
+  background-color: #3b82f6 !important;
+  width: 2px !important;
+}
+
+.monaco-editor .scrollbar {
+  background-color: transparent !important;
+}
+
+.monaco-editor .scrollbar .slider {
+  background-color: rgba(156, 163, 175, 0.3) !important;
+  border-radius: 3px !important;
+}
+
+.monaco-editor .scrollbar .slider:hover {
+  background-color: rgba(156, 163, 175, 0.5) !important;
+}
+
+.dark .monaco-editor .line-numbers {
+  color: #9ca3af !important;
+}
+
+.dark .monaco-editor .current-line {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+}
+
+.dark .monaco-editor .scrollbar .slider {
+  background-color: rgba(75, 85, 99, 0.3) !important;
+}
+
+.dark .monaco-editor .scrollbar .slider:hover {
+  background-color: rgba(75, 85, 99, 0.5) !important;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.8);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
