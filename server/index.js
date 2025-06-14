@@ -2,10 +2,23 @@ const express = require('express');
 const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const cors = require('cors');
+const cors = require('cors'); // You might need to install 'cors': npm install cors
 
 const app = express();
-const port = 5000; // You can choose any available port
+
+// Enable CORS for all origins or specific origins
+app.use(cors()); // For all origins (less secure for production)
+// Or for specific origins:
+// app.use(cors({ origin: 'https://your-frontend-domain.com' }));
+
+// Serve static files from the 'dist' directory
+app.use(express.static(path.join(__dirname, '..', 'dist')));
+
+// Handle all other routes by serving the index.html from the 'dist' directory
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -83,6 +96,10 @@ app.post('/execute', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Code execution server listening at http://localhost:${port}`);
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
